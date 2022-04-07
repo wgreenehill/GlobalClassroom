@@ -20,27 +20,25 @@
     margin:2px black !important;
 }
   
-#big_img img {
-    width:75%;
-    height: 100%;
-    margin-top: 65px;
+#slideshow img {
     border-radius: 60px;
-    
+    max-height: 500px;
 }
 
-#big_img{
+#slideshow{
     text-align: center;
+    width: auto;
+    margin: auto;
+    padding: 5%;
 }
 
 #img_container{
     display: flex;
-    padding: 12px;
+    width: auto;
+    padding: 5%;
+    padding-top: 0%;
     text-align: center;
-    margin-left: 235px;
 }
-
-
-
 
 #img1{
     position:relative;
@@ -132,3 +130,26 @@
   #livestream {
       padding-top: 5%;
   }
+
+  .navbar-custom {
+    background-color: lightgreen;
+}
+
+#navbutton:hover {
+    background-color: green;
+}
+
+.form {
+    margin: auto;
+    width: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.profile {
+    max-height: 200px;
+}
+
+
