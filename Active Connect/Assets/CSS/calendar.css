@@ -62,7 +62,7 @@ table tr td{
 	margin-left: 9%;
 	border-radius: 4px;
 	width: 80vw;
-	height: 90vh;
+	height: 100vh;
 	margin-top: 10%;
 	box-shadow: 0px 0px 15px 4px rgba(108, 108, 108, 0.657);
 	margin-bottom: 50%;
@@ -95,8 +95,7 @@ table tr td{
 #calendar .leftCol{
 	width: 40%;
 	background-color: #55B4B0;
-	height: 80vh;
-	overflow-y:auto;
+	height: 94vh;
 }
 
 #calendar .noteList {
@@ -106,7 +105,7 @@ table tr td{
 }
 
 #calendar .noteList li{
-	color: #ece5ed;
+	color: #313229;
 	font-size: large;
 	font-weight: bold;
 	margin-top: 5%;
@@ -115,7 +114,7 @@ table tr td{
 }
 
 #calendar .leftCol h1{
-	color: #f0f4e6;
+	color: #313229;
 	margin-top: 5px;
 	font-size: 3rem;
 	font-weight: bolder;
@@ -123,21 +122,21 @@ table tr td{
 }
 
 #calendar .leftCol h2{
-	color: #f0f4e6;
+	color: #313229;
 	font-size: 3rem;
 	font-weight: bolder;
 	font-family: Helvetica;
 }
 
 #calendar .leftCol h3{
-	color: #f0f4e6;
-	font-size: 2rem;
+	color: #313229;
+	font-size: 1rem;
 	font-weight: bolder;
 	font-family: Helvetica;
 }
 
 #calendar .leftCol p{
-	color: #f0f4e6;
+	color: #313229;
 	font-size: 1rem;
 	font-weight: bolder;
 	font-family: Helvetica;
@@ -148,7 +147,7 @@ table tr td{
 }
 
 #calendar .rightCol h2{
-	color: #1eaba4;
+	color: #313229;
 	text-align: right;
 	font-weight: bolder;
 	font-family: Helvetica;
@@ -162,16 +161,16 @@ table tr td{
 	margin-bottom: 40px;
 }
 
-#calender .rightCol h2 span {
+/* #calender .rightCol h2 span {
 	display: block;
 	margin-left: 5%;
-}
+} */
 
 .monthNow{
     color: #666666;
     text-align: center;
 	border: 1px solid;
-	font-size: 3.5vh;
+	font-size: 3vh;
 	/* border-color: #b8cdb5; */
 }
 
@@ -193,7 +192,7 @@ table tr td{
 }
 
 .dayNames{
-    color: #ffffff;
+    color: #442c2c;
 	font-weight: bold;
 	font-family: Helvetica;
     background-color: #419e99;
@@ -209,7 +208,7 @@ table tr td{
 .has td.dayNow{
     color: rgb(77, 75, 75);
    	text-align: center;
-	font-size: 3.5vh;
+	font-size: 3vh;
 	font-family: Helvetica;
 	background-color: #419e99;
 }
@@ -253,31 +252,63 @@ table tr td{
 }
 
 #Top {
-	margin-top: 7%;
 	display: flex;
 	padding: 0%;
+	margin-left: 20%;
+	margin-top: 7%;
 }
 
 #Top h1 {
 	border-top-style: solid;
 	border-top-width: thick;
-	border-color: #1eaba4;
+	border-color: #279993;
 	color: rgb(48, 50, 50);
 	font-family: Helvetica;
 	font-weight: bold;
 	font-size: 5vh;
-	text-align: center;
+	animation: mymove 5s infinite;
+	
+}
+#calbox {
+	width: 90vw;
+	height: 60vh;
+	margin-top: 5%;
+	border: 10px solid #72cfcb;
+	margin-left: 3%;
+	background-color: #55B4B0;
+}
+
+#calbox h2 {
+	color: #313229;
+	margin-top: 5px;
+	font-size: 2rem;
+	margin-left: 10px;
+	font-weight: bolder;
+	font-family: Helvetica;
+}
+
+#calbox h3 {
+	color: #313229;
+	margin-top: 5px;
+	font-size: 2rem;
+	margin-left: 10px;
+	font-weight: bolder;
+	font-family: Helvetica;
 }
 
 #caldate {
 	display: block;
 	width: 100px;
 	height: 110px;
-	margin: 30px auto;
+	margin-top: 2%;
+	margin-left: 2%;
+	/* margin: 30px auto; */
 	background: #fff;
 	text-align: center;
 	font-family: 'Helvetica', sans-serif;
 	position: relative;
+	border: 1px ridge;
+	font-weight: bold;
 }
 
 #caldate .cal {
@@ -311,6 +342,7 @@ table tr td{
 	font-size: 48px;
 	box-shadow: 0 0 3px #ccc;
 	position: relative;
+	font-weight: bold;
 }
 
 #caldate .calday::after {
@@ -336,7 +368,6 @@ table tr td{
 	z-index: -1;
 	box-shadow: 0 0 3px #ccc;
 }
-
 /* placeholder color */
 ::-webkit-input-placeholder {color: #ffffff; }
 :-moz-placeholder {color: #ffffff; }

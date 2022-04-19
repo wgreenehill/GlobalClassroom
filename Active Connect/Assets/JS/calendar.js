@@ -20,6 +20,7 @@ var numOfDays = dayPerMonth[month];
 var eventDayCheck = 0;
 var tempChange = "";
 
+
 Number.prototype.mod = function(n) {
 return ((this%n)+n)%n;
 }
@@ -132,6 +133,16 @@ function changeToPrevMonth() {
 	tempChange = "";
 }
 
+$.ajax({
+
+	url: "app.py/test",
+	type: "GET",
+	dataType: "text",
+	success: function(data){
+		console.log("python test" + data);
+	}
+});
+
 var eventDes;
 var eventTitle;
 var eventSubtitle;
@@ -212,12 +223,12 @@ function displayCalendar(){
 	}  
 		
 		
-		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
+		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2' method = 'GET'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
 		calendarBody +="<tr class='dayNames'>  <td>Sun</td>  <td>Mon</td> <td>Tues</td>"+
 			"<td>Wed</td> <td>Thurs</td> <td>Fri</td> <td>Sat</td> </tr>";
 		calendarBody += "<tr>";
 		calendarBody += htmlContent;
-		calendarBody += "</tr></table></div></div><div class='col leftCol'><div class='content'><h1 class='date'>"+dayNames[dayCheck()]+"<span>"+monthNames[month] + "   "+ dateCheck() +"</span></h1><h2 class = 'year'>"+ year + "</h2><ul class='noteList'><li>today event is "+eventBody+"</li></ul></div></div></div>";
+		calendarBody += "</tr></table></div></div><div class='col leftCol'><div class='content'><h1 class='date'>"+dayNames[dayCheck()]+"<span>"+monthNames[month] + "   "+ dateCheck() +"</span></h1><h2 class = 'year'>"+ year + "</h2><ul class='noteList'><li>"+eventBody+"</li></ul></div></div></div>";
 		document.getElementById("calendar").innerHTML=calendarBody;
 		document.getElementById("caldate").innerHTML= "<span class='cal'></span><span class='calmonth'>"+monthNames[month]+"</span><h1 class='calday'>"+day+"</h1>";
 		document.getElementById("btnSubmit").addEventListener("click", function() {
@@ -226,9 +237,12 @@ function displayCalendar(){
 		document.getElementById("btnSubmit2").addEventListener("click", function() {
 			monthChange("PREV");
 		}, false);
+
 	
 }
 daysInFeb();
+
+
 
 
 {/* <div class='notes'><p><input type='text' value='' placeholder='new note'/> */}
