@@ -111,6 +111,8 @@ function changeToNextMonth() {
 	prevMonth = ((nextMonth - 2) + 1).mod(12);
 	nextMonth = (nextMonth	+ 1).mod(13);
 	tempChange = "";
+
+	brythonListener("getEvents",nextMonth, year);
 }
 
 function changeToPrevMonth() {
@@ -133,15 +135,6 @@ function changeToPrevMonth() {
 	tempChange = "";
 }
 
-$.ajax({
-
-	url: "app.py/test",
-	type: "GET",
-	dataType: "text",
-	success: function(data){
-		console.log("python test" + data);
-	}
-});
 
 var eventDes;
 var eventTitle;
@@ -223,7 +216,7 @@ function displayCalendar(){
 	}  
 		
 		
-		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2' method = 'GET'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
+		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
 		calendarBody +="<tr class='dayNames'>  <td>Sun</td>  <td>Mon</td> <td>Tues</td>"+
 			"<td>Wed</td> <td>Thurs</td> <td>Fri</td> <td>Sat</td> </tr>";
 		calendarBody += "<tr>";
