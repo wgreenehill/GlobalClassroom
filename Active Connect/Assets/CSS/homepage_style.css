@@ -219,6 +219,7 @@ nav{
 .form {
     margin: auto;
     width: 50%;
+    padding-top: 6%;
 }
 
 .text-center {
@@ -227,10 +228,6 @@ nav{
 
 .profile {
     max-height: 200px;
-}
-
-.form{
-    padding-top: 3%;
 }
 
 #ageGroup {
