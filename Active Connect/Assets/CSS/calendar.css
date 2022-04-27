@@ -240,16 +240,20 @@ table tr td{
 	font-size:x-large;
 }
 
-/* #calender .btnSubmit {
-	background-color: #f1f1f1;
-	color: rgb(122, 0, 0);
+#calendar .join {
+	background-color: #707e06;
+	color: #f3dfc4;
+	width: 15%;
 	border-radius: 50%;
-} */
+	margin-left: 3%;
+}
+
 
 #calendar button:hover {
 	background-color: #adc3d7;
 	color: #5d5d5d;
 }
+
 
 #Top {
 	display: flex;
@@ -261,7 +265,7 @@ table tr td{
 #Top h1 {
 	border-top-style: solid;
 	border-top-width: thick;
-	border-color: #279993;
+	border-color: #707e06;
 	color: rgb(48, 50, 50);
 	font-family: Helvetica;
 	font-weight: bold;
@@ -325,7 +329,7 @@ table tr td{
 }
 
 #caldate .calmonth {
-	background: #555;
+	background: #707e06;
 	display: block;
 	padding: 8px 0;
 	color: #fff;
@@ -368,6 +372,38 @@ table tr td{
 	z-index: -1;
 	box-shadow: 0 0 3px #ccc;
 }
+
+#calbox h4 {
+	color: #f3dfc4;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	width: 30%;
+	border: ridge #d7dbbf;
+	background-color: #707e06;
+	margin-left: 10px;
+	font-family: Helvetica;
+}
+
+#calbox li {
+	background-color: #eff1e0;
+	width: 70%;
+	list-style: none;
+}
+#calbox li h2 {
+	font-size: 1.5rem;
+	font-weight: bolder;
+	margin-left: 10px;
+	font-family: Helvetica;
+}
+#calbox .dButton {
+	background-color: #707e06;
+	color: #f3dfc4;
+	width: 5%;
+	border-radius: 50%;
+	margin-left: 35%;
+	margin-top: 5px;
+}
+
 /* placeholder color */
 ::-webkit-input-placeholder {color: #ffffff; }
 :-moz-placeholder {color: #ffffff; }
