@@ -1,6 +1,7 @@
 #logo{
     margin-bottom: 6px ;
     margin-left: 10px;
+    max-width: 250px;
 }
 
 .d-flex{
@@ -11,7 +12,13 @@
     margin-bottom: 5px;
 }
 
+.navbar-nav {
+    font-size: 175%;
+}
 
+nav{
+    margin-bottom: 200px;
+}
 
 
 #navbutton:hover{
@@ -30,6 +37,7 @@
     width: auto;
     margin: auto;
     padding: 5%;
+    padding-top: 10%;
 }
 
 
@@ -205,12 +213,13 @@
 }
 
 #navbutton:hover {
-    background-color: green;
+    background-color: rgb(242, 246, 242);
 }
 
 .form {
     margin: auto;
     width: 50%;
+    padding-top: 6%;
 }
 
 .text-center {
@@ -221,4 +230,7 @@
     max-height: 200px;
 }
 
+#ageGroup {
+    border-top: 5%;
+}
 

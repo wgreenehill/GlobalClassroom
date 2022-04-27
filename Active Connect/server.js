@@ -35,6 +35,10 @@ app.get('/Events.html', function(req, res){
 app.get('/Games.html', function(req, res){
     res.render('Games');
 });
+app.get('/Login.html', function(req, res){
+    res.render('Login');
+});
+
 
 app.get('/Profile.html', function(req, res){
     res.render('Profile');
