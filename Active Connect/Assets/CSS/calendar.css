@@ -258,7 +258,7 @@ table tr td{
 #Top {
 	display: flex;
 	padding: 0%;
-	margin-left: 20%;
+	margin-left: 14%;
 	margin-top: 10%;
 }
 
@@ -269,7 +269,7 @@ table tr td{
 	color: rgb(48, 50, 50);
 	font-family: Helvetica;
 	font-weight: bold;
-	font-size: 5vh;
+	font-size: 7vh;
 	animation: mymove 5s infinite;
 	
 }
