@@ -3,13 +3,16 @@ var FebNumberOfDays ="";
 var counter = 1;
 var dateNow = new Date();
 var month = dateNow.getMonth();
+var currMonth = month;
 var day = dateNow.getDate();
+var currDay = day;
 var year = dateNow.getFullYear();
 var currentYear = year;
 var nextMonth = month+1; 
 var prevMonth = month-1;
-var events = [5,9,12,15,23];
+const events = [];
 var check;
+var wait = 1;
 var monthNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
 var dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday", "Saturday"];
 var dayPerMonth = ["31", ""+FebNumberOfDays+"","31","30","31","30","31","31","30","31","30","31"];
@@ -37,13 +40,22 @@ function daysInFeb(){
 	dayPerMonth = ["31", ""+FebNumberOfDays+"","31","30","31","30","31","31","30","31","30","31"];
 }
 
-function checkEvents(counter,  index){
+function setEvents(results){
+	events.splice(0,events.length);
+	for(const value of results){
+		events.push(value);
+	}
+	console.log(events);
+	displayCalendar();
+}
+
+function checkEvents(counter,  index, events){
 	if (counter == events[index]){
 		return true;
 	}else if(counter < events[index] || index >= events.length){
 		return false;
 	}else{
-		check = checkEvents(counter, index + 1);
+		check = checkEvents(counter, index + 1, events);
 		return check;
 	}
 }
@@ -75,6 +87,58 @@ function dateCheck(){
 	}
 }
 
+function getEventsByMonth(p1, p2, callback) {
+	var array = new Array();
+	$.ajax({
+	url: "http://localhost:8000/get-events-by-month?data=" + p1 + "-" + p2,
+	type: "GET",
+	dataType: 'json',
+	"dataSrc": "tableData",
+	success: function(result) {
+		$.each(result.event, function(key, value) {
+			console.log(value);
+			console.log(value.Day);
+			array.push(value.Day);	
+		});
+		callback(array);
+		
+	}
+	});
+	console.log(array.toString());
+}
+
+function getEventsByDay(p1, p2, p3, callback) {
+	var temp;
+	$.ajax({
+		url: "http://localhost:8000/get-events-by-day?data=" + p1 + "-" + p2 + "-" +p3,
+		type: "GET",
+		dataType: 'json',
+		"dataSrc": "tableData",
+		success: function(result) {
+			$.each(result.event, function(key, value) {
+				console.log(value);
+				temp = value;
+				console.log(value.Day);
+			});
+			callback(temp);
+		}
+	});
+   
+}
+
+function addEventToUser(p1, p2) {
+	$.ajax({
+		url: "http://localhost:8000/add-event-to-user?data=" + p1 + "-" + p2,
+		type: "POST",
+		dataType: 'json',
+		"dataSrc": "tableData",
+		success: function(result) {
+		}
+
+	});
+	location.reload();
+}
+
 function monthChange(nextOrPrev){
 	counter = 1;
 	tempChange = nextOrPrev;
@@ -90,7 +154,7 @@ function monthChange(nextOrPrev){
 	numOfDays = dayPerMonth[month];
 	eventDayCheck = 0;
 	htmlContent ="";
-	displayCalendar();
+	myFunction();
 	tempChange = "";
 }
 
@@ -111,6 +175,7 @@ function changeToNextMonth() {
 	prevMonth = ((nextMonth - 2) + 1).mod(12);
 	nextMonth = (nextMonth	+ 1).mod(13);
 	tempChange = "";
+
 }
 
 function changeToPrevMonth() {
@@ -133,64 +198,28 @@ function changeToPrevMonth() {
 	tempChange = "";
 }
 
-$.ajax({
 
-	url: "app.py/test",
-	type: "GET",
-	dataType: "text",
-	success: function(data){
-		console.log("python test" + data);
-	}
-});
+var eventDes = "";
+var eventTitle = "";
+var eventSubtitle = "";
+var eventUrl = "";
+var eventBody = "";
+function showEvents(eventDet){
 
-var eventDes;
-var eventTitle;
-var eventSubtitle;
-var eventUrl;
-var eventBody;
-function showEvents(dayNumber){
-	if(dayNumber == 5)
-	{
-		eventTitle = "CommunityIT";
-		eventSubtitle = "In this tutorial, we have learned to create a button with CSS.";
-		eventDes = "In this tutorial, we have learned to create a button with CSS. We have used a border-radius property to do so. The fully rounded buttons take less space on the webpage. We can use these to make the web page good to see.";
-		eventUrl = "<a href='https://brightspace.tudublin.ie/d2l/home'>event1</a>";
-	}
-	else if (dayNumber == 9)
-	{
-		eventTitle = "CommunityIT";
-		eventSubtitle = "In this tutorial, we have learned to create a button with CSS.";
-		eventDes = "In this tutorial, we have learned to create a button with CSS. We have used a border-radius property to do so. The fully rounded buttons take less space on the webpage. We can use these to make the web page good to see.";
-		eventUrl = "<a href='https://brightspace.tudublin.ie/d2l/home'>event1</a>";
-	}
-	else if (dayNumber ==12)
-	{
-		eventTitle = "CommunityIT";
-		eventSubtitle = "In this tutorial, we have learned to create a button with CSS.";
-		eventDes = "In this tutorial, we have learned to create a button with CSS. We have used a border-radius property to do so. The fully rounded buttons take less space on the webpage. We can use these to make the web page good to see.";
-		eventUrl = "<a href='https://brightspace.tudublin.ie/d2l/home'>event1</a>";
-	}
-	else if (dayNumber ==15)
-	{
-		eventTitle = "CommunityIT";
-		eventSubtitle = "In this tutorial, we have learned to create a button with CSS.";
-		eventDes = "In this tutorial, we have learned to create a button with CSS. We have used a border-radius property to do so. The fully rounded buttons take less space on the webpage. We can use these to make the web page good to see.";
-		eventUrl = "<a href='https://brightspace.tudublin.ie/d2l/home'>event1</a>";
-	}
-	else if (dayNumber == 23)
-	{
-		eventTitle = "CommunityIT";
-		eventSubtitle = "In this tutorial, we have learned to create a button with CSS.";
-		eventDes = "In this tutorial, we have learned to create a button with CSS. We have used a border-radius property to do so. The fully rounded buttons take less space on the webpage. We can use these to make the web page good to see.";
-		eventUrl = "<a href='https://brightspace.tudublin.ie/d2l/home'>event1</a>";
-	}
-	else {
-		eventDes ="choose a day";
-	}
-	eventDayCheck = dayNumber;
+	
+	eventTitle = eventDet.Title;
+	eventSubtitle = eventDet.Subtitle;
+	eventDes = eventDet.Description;
+	eventUrl = "<button id= 'joinButton' class = 'join' value = '"+ eventDet.EventID +"'>join</button>";
+
 	eventBody = "<h2>"+eventTitle+"</h2>" + "<h3>"+eventSubtitle+"</h3>" + "<p>"+eventDes+"</p>" + eventUrl;
-	displayCalendar();
+	myFunction();
 }
+
+function myFunction() {
+	getEventsByMonth(nextMonth,year,setEvents);
+  }
+ 
 
 function displayCalendar(){
 
@@ -208,12 +237,12 @@ function displayCalendar(){
 				htmlContent += "</tr><tr>";
 			}
 	 
-			check = checkEvents(counter, 0);
+			check = checkEvents(counter, 0, events);
 			if (counter == day && month == dateNow.getMonth() && year == dateNow.getFullYear()){
 				
 				htmlContent +="<td class='dayNow'>"+counter+"</td>";
-			}else if(checkEvents(counter, 0)){
-				htmlContent +="<td class='eventNow' onclick = 'showEvents("+counter+")' style='cursor: pointer;'>"+counter+"</td>";
+			}else if(checkEvents(counter, 0, events)){
+				htmlContent +="<td class='eventNow' onclick = 'getEventsByDay("+counter+","+ nextMonth +", "+ year +", showEvents)' style='cursor: pointer;'>"+counter+"</td>";
 			}else{
 				console.log("NO EVENT " + check);
 				htmlContent +="<td class='monthNow'>"+counter+"</td>";
@@ -223,20 +252,25 @@ function displayCalendar(){
 	}  
 		
 		
-		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2' method = 'GET'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
+		var calendarBody = "<div class='col rightCol'><div class='content'><button id = 'btnSubmit2'><</button><h2 class = 'year'>"+ year +" "+monthNames[month] +" </h2><button id = 'btnSubmit'>></button><table class='has'>";
 		calendarBody +="<tr class='dayNames'>  <td>Sun</td>  <td>Mon</td> <td>Tues</td>"+
 			"<td>Wed</td> <td>Thurs</td> <td>Fri</td> <td>Sat</td> </tr>";
 		calendarBody += "<tr>";
 		calendarBody += htmlContent;
 		calendarBody += "</tr></table></div></div><div class='col leftCol'><div class='content'><h1 class='date'>"+dayNames[dayCheck()]+"<span>"+monthNames[month] + "   "+ dateCheck() +"</span></h1><h2 class = 'year'>"+ year + "</h2><ul class='noteList'><li>"+eventBody+"</li></ul></div></div></div>";
 		document.getElementById("calendar").innerHTML=calendarBody;
-		document.getElementById("caldate").innerHTML= "<span class='cal'></span><span class='calmonth'>"+monthNames[month]+"</span><h1 class='calday'>"+day+"</h1>";
+		document.getElementById("caldate").innerHTML= "<span class='cal'></span><span class='calmonth'>"+monthNames[currMonth]+"</span><h1 class='calday'>"+currDay+"</h1>";
 		document.getElementById("btnSubmit").addEventListener("click", function() {
 			monthChange("NEXT");
 		}, false);
 		document.getElementById("btnSubmit2").addEventListener("click", function() {
 			monthChange("PREV");
 		}, false);
+		document.getElementById("joinButton").addEventListener("click", function() {
+			var value = document.getElementById("joinButton").value;
+			addEventToUser('Jackiemo@gmail.com', value);
+		}, false);
+		
 
 	
 }
