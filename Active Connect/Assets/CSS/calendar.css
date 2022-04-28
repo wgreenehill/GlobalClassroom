@@ -259,7 +259,8 @@ table tr td{
 	display: flex;
 	padding: 0%;
 	margin-left: 14%;
-	margin-top: 10%;
+	margin-top: 6.5%;
+	margin-bottom: -2.5%;
 }
 
 #Top h1 {
@@ -271,7 +272,6 @@ table tr td{
 	font-weight: bold;
 	font-size: 7vh;
 	animation: mymove 5s infinite;
-	
 }
 #calbox {
 	width: 90vw;
