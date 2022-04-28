@@ -35,12 +35,23 @@ app.get('/Events.html', function(req, res){
 app.get('/Games.html', function(req, res){
     res.render('Games');
 });
-
+app.get('/Login.html', function(req, res){
+    res.render('Login');
+});
 app.get('/Profile.html', function(req, res){
     res.render('Profile');
 });
 app.get('/test.html', function(req, res){
     res.render('test');
+});
+app.get('/CreateProfile.html', function(req, res){
+    res.render('CreateProfile');
+});
+app.get('/Bingo.html', function(req, res){
+    res.render('Bingo');
+});
+app.get('/LogIn.html', function(req, res){
+    res.render('LogIn');
 });
 app.get('/get-events-by-month', function(req, res) {
     console.log(req.query.data);
@@ -155,9 +166,6 @@ app.use(function(err, req, res, next) {
 
 app.get('/Bingo.html', function(req, res){
     res.render('Bingo');
-});
-app.get('/CreateProfile.html', function(req, res){
-    res.render('CreateProfile');
 });
 app.listen(8000);
 
