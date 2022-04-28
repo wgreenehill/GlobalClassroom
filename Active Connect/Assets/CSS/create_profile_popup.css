@@ -1,5 +1,5 @@
 #dialog_box{
-    width: 50%;
+    width: 35%;
     background: #80d5a6;
     border: 5px dashed mediumseagreen;
     color: black;
@@ -8,5 +8,7 @@
     text-align: center;
     z-index: 1;
     display:block;
-    margin-top: -4.5%;
+    margin-top: -32%;
+    margin-left: auto;
+    margin-right: auto;
  }
