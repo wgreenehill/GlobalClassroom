@@ -35,7 +35,9 @@ app.get('/Events.html', function(req, res){
 app.get('/Games.html', function(req, res){
     res.render('Games');
 });
-
+app.get('/Login.html', function(req, res){
+    res.render('Login');
+});
 app.get('/Profile.html', function(req, res){
     res.render('Profile');
 });
@@ -164,9 +166,6 @@ app.use(function(err, req, res, next) {
 
 app.get('/Bingo.html', function(req, res){
     res.render('Bingo');
-});
-app.get('/CreateProfile.html', function(req, res){
-    res.render('CreateProfile');
 });
 app.listen(8000);
 
