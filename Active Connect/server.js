@@ -47,6 +47,12 @@ app.get('/test.html', function(req, res){
 app.get('/CreateProfile.html', function(req, res){
     res.render('CreateProfile');
 });
+app.get('/Bingo.html', function(req, res){
+    res.render('Bingo');
+});
+app.get('/LogIn.html', function(req, res){
+    res.render('LogIn');
+});
 app.get('/get-events-by-month', function(req, res) {
     console.log(req.query.data);
     var temp = req.query.data.split('-'), p1 = temp[0], p2 = temp[1];
