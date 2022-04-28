@@ -54,18 +54,19 @@
                 <p class="text-center"><a href="LogIn.html">Already created an account?</a></p>
             </div>
             <div class="col-md-5 form">
+                    <form action="insert.php" method="post">
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder=""></div>
+                        <div class="col-md-6"><label class="labels">First Name*</label><input name="f_name" required type="text" class="form-control" placeholder="" value=""></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input name-="l_name" type="text" class="form-control" value="" placeholder=""></div>
                         
-                        <div class="col-md-6"><label class="labels">Email Address</label><input type="email" class="form-control" placeholder="" value=""></div>
-                        <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="" placeholder=""></div>
-                        <div class="col-md-6"><label class="labels">Reduced Mobility</label><input type="text" class="form-control" value="" placeholder=""></div>
-                        <div class="col-md-6"><label class="labels">County</label><input type="text" class="form-control" placeholder="Dublin" value="Dublin"></div>
-                        <div class="col-md-6"><label class="labels">Dietary Requirements</label><input type="text" class="form-control" value="" placeholder=""></div>
+                        <div class="col-md-6"><label class="labels">Email Address*</label><input name="email" required type="email" class="form-control" placeholder="" value=""></div>
+                        <div class="col-md-6"><label class="labels">Phone Number</label><input name="phonenumber" type="text" class="form-control" value="" placeholder=""></div>
+                        <div class="col-md-6"><label class="labels">Reduced Mobility</label><input name="mobility" type="text" class="form-control" value="" placeholder=""></div>
+                        <div class="col-md-6"><label class="labels">County*</label><input type="text" class="form-control" placeholder="Dublin" value="Dublin"></div>
+                        <div class="col-md-6"><label class="labels">Dietary Requirements</label><input name="dietary" type="text" class="form-control" value="" placeholder=""></div>
                         
                           <div class="col-md-6"><label class="labels">Local Group</label><select id="localGroup" name="Local_Group" placeholder="">
-                            <option value="ChooseLocalGroup">Select Your Local Group</option>
+                            <option value="ChooseLocalGroup">Select Your Local Group*</option>
                             <option value="Balbriggan">Balbriggan Bowling Club A.R.A.</option>
                             <option value="Baldoyle">Baldoyle A.R.A.</option>
                             <option value="Dominics">Dominics Lady’s Crochet A.R.A.</option>
@@ -79,10 +80,11 @@
                             <option value="80 - 89">80 - 89</option>
                             <option value="over 90">over 90</option>
                           </select></div>
-                          <div class="col-md-6"><label class="labels">Password</label><input type="text" class="form-control" placeholder="" value=""></div>
-                          <div class="col-md-6"><label class="labels">Repeat Password</label><input type="text" class="form-control" value="" placeholder=""></div>  
+                          <div class="col-md-6"><label class="labels">Password*</label><input name="password" required type="text" class="form-control" placeholder="" value=""></div>
+                          <div class="col-md-6"><label class="labels">Repeat Password*</label><input name="password_repeat" required type="text" class="form-control" value="" placeholder=""></div>  
+                          <input type="submit" value="Submit">
                     </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Create Profile</button></div>
+                  </form>
             </div>
     </div>
     
