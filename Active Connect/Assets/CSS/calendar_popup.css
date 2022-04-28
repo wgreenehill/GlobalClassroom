@@ -1,0 +1,14 @@
+#dialog_box{
+    width: 50%;
+    background: #80d5a6;
+    border: 5px dashed mediumseagreen;
+    color: black;
+    font-family: Marcellus, serif;
+    text-shadow: 0 2px #fff;
+    text-align: center;
+    z-index: 1;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5%;
+ }
