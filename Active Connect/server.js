@@ -161,7 +161,6 @@ app.use(function(err, req, res, next) {
 app.get('/Bingo.html', function(req, res){
     res.render('Bingo');
 });
-
 app.listen(8000);
 
 // sys.puts('server running ' + 'now ' + Date.now());
